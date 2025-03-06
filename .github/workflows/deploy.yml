@@ -7,7 +7,7 @@ on:
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
-    environment: Production  # Add this line to specify the environment
+    environment: Production
     
     steps:
     - uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
 
   deploy-backend:
     runs-on: ubuntu-latest
-    environment: Production  # Add this line to specify the environment
+    environment: Production
     
     steps:
     - uses: actions/checkout@v3
@@ -56,3 +56,5 @@ jobs:
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
         heroku_email: ${{ secrets.HEROKU_EMAIL }}
         appdir: "packages/backend"
+        procfile: "web: npm start"
+        justlogin: false
