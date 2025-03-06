@@ -1,0 +1,37 @@
+# .github/workflows/contracts-ci.yml
+name: Smart Contracts CI
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'packages/contracts/**'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'packages/contracts/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'yarn'
+        
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: Compile contracts
+      run: yarn workspace @crypto-city/contracts compile
+      
+    - name: Run tests
+      run: yarn workspace @crypto-city/contracts test
+      
+    - name: Run coverage
+      run: yarn workspace @crypto-city/contracts coverage
