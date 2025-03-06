@@ -10,7 +10,8 @@
     "dev": "concurrently \"npm run dev --workspace=@crypto-city/frontend\" \"npm run dev --workspace=@crypto-city/backend\"",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
-    "lint": "npm run lint --workspaces"
+    "lint": "npm run lint --workspaces",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "concurrently": "^8.2.1",

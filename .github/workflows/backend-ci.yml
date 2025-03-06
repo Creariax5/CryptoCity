@@ -1,4 +1,3 @@
-# .github/workflows/backend-ci.yml
 name: Backend CI
 
 on:
@@ -37,16 +36,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        cache: 'yarn'
+        cache: 'npm'
         
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: npm install --legacy-peer-deps
       
     - name: Lint
-      run: yarn workspace @crypto-city/backend lint
+      run: npm run lint --workspace=@crypto-city/backend
       
     - name: Run tests
-      run: yarn workspace @crypto-city/backend test
+      run: npm run test --workspace=@crypto-city/backend
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost:5432/crypticity_test
         NODE_ENV: test

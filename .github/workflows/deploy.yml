@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Deploy to Production
 
 on:
@@ -16,13 +15,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        cache: 'yarn'
+        cache: 'npm'
         
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: npm install --legacy-peer-deps
       
     - name: Build
-      run: yarn workspace @crypto-city/frontend build
+      run: npm run build --workspace=@crypto-city/frontend
       env:
         NEXT_PUBLIC_CHAIN_ID: ${{ secrets.NEXT_PUBLIC_CHAIN_ID }}
         NEXT_PUBLIC_RPC_URL: ${{ secrets.NEXT_PUBLIC_RPC_URL }}
