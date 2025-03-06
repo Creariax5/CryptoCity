@@ -22,16 +22,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        cache: 'yarn'
+        cache: 'npm'
         
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: npm install --legacy-peer-deps
       
     - name: Lint
-      run: yarn workspace @crypto-city/frontend lint
+      run: npm run lint --workspace=@crypto-city/frontend
       
     - name: Test
-      run: yarn workspace @crypto-city/frontend test
+      run: npm run test --workspace=@crypto-city/frontend
       
     - name: Build
-      run: yarn workspace @crypto-city/frontend build
+      run: npm run build --workspace=@crypto-city/frontend

@@ -1,24 +1,27 @@
 {
-    "name": "crypto-city",
-    "version": "0.1.0",
-    "private": true,
-    "workspaces": [
-      "packages/*"
-    ],
-    "scripts": {
-      "dev": "concurrently \"yarn workspace @crypto-city/frontend dev\" \"yarn workspace @crypto-city/backend dev\"",
-      "build": "yarn workspaces run build",
-      "test": "yarn workspaces run test",
-      "lint": "yarn workspaces run lint",
-      "postinstall": "husky install"
-    },
-    "devDependencies": {
-      "concurrently": "^8.2.1",
-      "husky": "^8.0.3",
-      "lint-staged": "^14.0.1",
-      "prettier": "^3.0.3"
-    },
-    "engines": {
-      "node": ">=18.0.0"
-    }
+  "name": "crypto-city",
+  "version": "1.0.0",
+  "description": "Web3 city-building game",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=@crypto-city/frontend\" \"npm run dev --workspace=@crypto-city/backend\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "next": "15.2.1"
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "@crypto-city/shared",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "eslint": "^8.49.0",
+    "jest": "^29.6.4"
+  }
+}
